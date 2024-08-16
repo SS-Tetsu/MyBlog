@@ -1,0 +1,84 @@
+/* 设置 body 和 html 的基础样式 */
+body, html {
+    margin: 0; /* 去掉默认的外边距 */
+    padding: 0; /* 去掉默认的内边距 */
+    height: 100%; /* 设置高度为 100% */
+    overflow: hidden; /* 隐藏滚动条 */
+}
+
+/* 背景视频的样式 */
+#bg-video {
+    position: fixed; /* 视频固定在背景 */
+    top: 0; /* 顶部对齐 */
+    left: 0; /* 左侧对齐 */
+    width: 100%; /* 宽度为 100% */
+    height: 100%; /* 高度为 100% */
+    object-fit: cover; /* 保持视频比例并覆盖整个容器 */
+    z-index: -1; /* 设置 z-index 为-1，保证视频在所有内容后面 */
+}
+
+/* 注册区域的样式 */
+.register {
+    width: 600px; /* 宽度为 600px */
+    margin: 100px auto; /* 垂直居中，顶部和底部各留 100px 间距 */
+    background-color: rgba(190, 185, 185, 0.1); /* 背景白色带透明度 */
+    padding: 20px; /* 内边距为 20px */
+    border-radius: 10px; /* 边框圆角 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /*添加阴影效果*/
+    position: relative; /* 相对定位 */
+    z-index: 1; /* 设置 z-index 为 1，保证注册区在视频之上 */
+}
+
+/* 标题的样式 */
+h1 {
+    text-align: center; /* 标题居中对齐 */
+    color: #ffffff; /* 标题颜色 */
+}
+
+/* 标签的样式 */
+.register-field-icon {
+    display: inline-block; /* 行内块元素显示 */
+    width: 120px; /* 标签宽度为 120px */
+    text-align: left; /* 标签文字左对齐 */
+    color: #ffffff;
+}
+
+/* 控件组的样式 */
+.control-group {
+    margin-bottom: 15px; /* 控件组底部间距为 15px */
+    text-align: left; /* 控件组内文字左对齐 */
+}
+
+/* 输入框的样式 */
+input {
+    text-align: left; /* 输入框中的文字左对齐 */
+    background-color: #f0ecec; /* 输入框背景色 */
+    border: 2px solid #000000; /* 输入框边框颜色 */
+    border-radius: 3px; /* 边框圆角为 3px */
+    font-size: 16px; /* 字体大小为 16px */
+    padding: 10px; /* 内边距为 10px */
+    width: calc(100% - 22px); /* 宽度为 100% 减去边框和内边距 */
+}
+
+/* 按钮的样式 */
+.btn {
+    border: 2px solid transparent; /* 按钮边框透明 */
+    background-color: #424242; /* 按钮背景色 */
+    color: white; /* 按钮文字颜色为白色 */
+    font-size: 16px; /* 字体大小为 16px */
+    width: 25%; /* 按钮宽度 */
+    padding: 13px; /* 内边距 */
+    margin-top: 20px; /* 顶部外边距为 20px */
+    border-radius: 8px; /* 按钮边框圆角为 3px */
+    display: block; /* 将按钮设置为块级元素 */
+    margin: 20px auto; /* 将外边距的左右设置为 auto 以实现居中 */
+}
+
+/* 注册链接的样式 */
+.register-link {
+    font-size: 14px; /* 链接字体大小为 14px */
+    color: #ffffff; /* 链接颜色为深灰色 */
+    display: block; /* 使链接成为块级元素 */
+    margin-top: 15px; /* 顶部外边距为 15px */
+    text-align: center; /* 链接文字居中对齐 */
+}

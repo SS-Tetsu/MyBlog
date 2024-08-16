@@ -1,0 +1,80 @@
+/* 设置 body 和 html 的基础样式 */
+body, html {
+    margin: 0; /* 去掉默认的外边距 */
+    padding: 0; /* 去掉默认的内边距 */
+    height: 100%; /* 设置高度为 100% */
+    overflow: hidden; /* 隐藏滚动条 */
+}
+
+/* 背景视频的样式 */
+#bg-video {
+    position: fixed; /* 固定定位，保持视频固定在背景 */
+    top: 0; /* 顶部对齐 */
+    left: 0; /* 左侧对齐 */
+    width: 100%; /* 宽度为 100% */
+    height: 100%; /* 高度为 100% */
+    object-fit: cover; /* 保持视频比例并覆盖整个容器 */
+    z-index: -1; /* 设置 z-index 为负值，确保视频在所有内容后面 */
+}
+
+/* 登录区域的样式 */
+.form-contents {
+    width: 600px; /* 表单区域宽度 */
+    margin: 100px auto; /* 居中，顶部和底部间距 */
+    background-color: rgba(255, 255, 255, 0.1); /* 背景白色带透明度 */
+    padding: 20px; /* 内边距为 20px */
+    border-radius: 8px; /* 边框圆角 8px */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 添加阴影效果，黑色，透明度 0.5 */
+    position: relative; /* 相对定位 */
+    z-index: 1; /* 设置 z-index 为 1，确保表单区域在视频之上 */
+}
+
+/* 标题 */
+h2 {
+    text-align: center; 
+    color: #ffffff; 
+}
+
+/* 控件组的样式 */
+.control-group {
+    margin-bottom: 15px; /* 控件组底部间距为 15px */
+}
+
+/* 输入框标签的样式 */
+.login-field-icon {
+    display: inline-block; /* 显示为行内块元素 */
+    width: 85px; /* 标签宽度为 80px */
+    color: #ffffff; /* 标签文字颜色为白色 */
+}
+
+/* 输入框的样式 */
+.login-field {
+    width: calc(100% - 22px); /* 输入框宽度为容器的100%减去22px */
+    padding: 10px; /* 输入框内边距为 10px */
+    border: 1px solid #000000; /* 输入框边框黑色实线 */
+    border-radius: 3px; /* 边框圆角 */
+    background-color: #f0ecec; /* 输入框背景色*/
+    font-size: 16px; /* 输入框文字大小 */
+}
+
+/* 登录按钮的样式 */
+.btn {
+    width: 150px; /* 按钮宽度 */
+    padding: 5px 0; /* 按钮上下内边距 */
+    background-color: #2e2e2e; /* 按钮背景色 */
+    color: white; /* 按钮文字颜色 */
+    margin-top: 10px; /* 按钮顶部外边距 */
+    border: 2px solid transparent; /* 按钮边框透明 */
+}
+
+/* 找回密码链接的样式 */
+.login-link {
+    font-size: 14px; 
+    color: #ffffff; 
+    text-align: center; /* 链接文字居中对齐 */
+    margin-top: 15px; /* 链接顶部外边距 */
+}
+
+.control-position {
+    text-align: center; /* 控件组居中 */
+}
