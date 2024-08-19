@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Register</title>
+    <link rel="stylesheet" href="blogRegister.css"> 
+</head>
+<body>
+    <img src="大海.jpeg" id="bg-img" alt="background">
+    <header>
+        <div class="header-content">Blog Register</div>
+        <nav>
+            <button>Home</button>
+            <button>Blog Register</button>
+            <button>Delete List</button>
+            <button>Log Out</button>
+        </nav>
+    </header>
+    <section class="form-title">
+        <h1>新規記事追加</h1>
+    </section>
+    <main>
+        <section class="form-container">
+            <form action="">
+                <div class="form-group">
+                    <label for="title">タイトル:</label>
+                    <input type="text" id="title" name="title">
+                </div>
+                <div class="form-group">
+                    <label for="date">日付:</label>
+                    <input type="text" id="date" name="date" placeholder="年/月/日">
+                </div>
+                <div class="form-group">
+                    <label for="category">カテゴリ:</label>
+                    <input type="text" id="category" name="category">
+                </div>
+                <div class="form-group">
+                    <label for="image">画像:</label>
+                    <input type="file" id="image" name="image">
+                </div>
+                <div class="form-group">
+                    <label for="details">詳細:</label>
+                    <textarea id="details" name="details" rows="10"></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit">登録</button>
+                    <button type="button" onclick="location.href='blogList.html'">戻る</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">Blog List</div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Overview</title>
+    <link rel="stylesheet" href="blogList.css"> 
+</head>
+<body>
+    <img src="大海.jpeg" id="bg-img" alt="background">
+
+    <header>
+        <div class="username">
+            <div class="header-content">Blog List</div>
+            <span id="username-display">Username</span>さん、ようこそ。
+        </div>
+        <nav>
+            <button>Home</button>
+            <button>Blog Register</button>
+            <button>Delete List</button>
+            <button>Log Out</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="blog-list">
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">Blog List</div>
+    </footer>
+    <script>
+        var username = "User"; 
+        document.getElementById('username-display').textContent = username;
+    </script>
+</body>
+</html>
