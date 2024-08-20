@@ -8,26 +8,39 @@
     z-index: -1; /* 确保背景图片在所有内容的后面 */
 }
 
-/* 页眉部分，包含用户名称和导航按钮，左右边距去掉，与网页左右边界对齐 */
+/* 页眉部分 */
 header {
     display: flex;
-    justify-content: space-between; /* 两端对齐，用户名称在左，按钮在右 */
+    justify-content: space-between;
     align-items: center;
-    padding: 10px 0; /* 上下内边距，左右无内边距 */
-    background-color: rgba(0, 0, 0, 0.644); /* 添加半透明背景色 */
-    border-bottom: 2px solid black; /* 添加下边框作为分割线 */
+    padding: 10px 20px; /* 上下内边距，左右20px */
+    background-color: rgba(0, 0, 0, 0.644); /* 半透明背景色 */
+    border-bottom: 2px solid black; /* 下边框作为分割线 */
     color: white; /* 文本颜色为白色 */
 }
 
-/* 将用户名显示区域向中心移动“ようこそ*/
+/* 用户名显示区域 */
 .username {
     font-size: 20px; /* 设置字体大小 */
-    margin-left: 20px; /* 向右移动一些，使其不再紧靠左边 */
+    flex: 1; /* 使其占用左侧区域 */
+}
+
+/* 中间的标题 */
+.header-content {
+    font-size: 24px; /* 标题字体大小 */
+    text-align: center;
+    flex: 1; /* 使标题居中显示 */
 }
 
 /* 右侧的按钮 */
+nav {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1; /* 使导航按钮占用右侧区域 */
+}
+
 nav button {
-    border-radius: 8px; /* 按钮边框圆角为*/
+    border-radius: 8px; /* 按钮圆角 */
     margin-left: 15px; /* 按钮间距 */
     padding: 9px 15px; /* 内边距 */
     background-color: #444; 
@@ -42,24 +55,62 @@ nav button:hover {
 
 /* 主体内容区 */
 main {
+    display: flex;
+    justify-content: center; /* 内容居中 */
+    align-items: center; /* 垂直居中 */
+    height: calc(100vh - 160px); /* 主体内容高度，减去页眉和页脚的高度 */
     padding: 20px;
-    margin: 0 20px; /* 主体内容左右边距 */
 }
 
-/* 页脚部分，固定在页面底部，并与页面左右边界对齐 */
+/* 博客列表 */
+.blog-list {
+    display: flex;
+    flex-wrap: wrap; /* 允许记事项换行 */
+    justify-content: space-around; /* 等间距分布 */
+    padding: 20px;
+}
+
+/* 每个 blog-item 的样式 */
+.blog-item {
+    width: 30%; /* 每个记事项占30%宽度 */
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明白色背景 */
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer; /* 鼠标悬停手型 */
+    text-align: center;
+}
+
+.blog-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px; /* 图片圆角 */
+}
+
+.blog-item h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.blog-item .last-modified {
+    font-size: 14px; /* 修改时间字体大小 */
+    color: #666; /* 修改时间字体颜色 */
+    margin-top: 10px; /* 与其他内容的间距 */
+}
+
+/* 页脚部分 */
 footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     padding: 10px 0; /* 上下内边距，左右无内边距 */
-    background-color: rgba(0, 0, 0, 0.644); /* 添加半透明背景色 */
-    border-top: 2px solid black; /* 添加上边框作为分割线 */
+    background-color: rgba(0, 0, 0, 0.644); /* 半透明背景色 */
+    border-top: 2px solid black; /* 上边框作为分割线 */
     text-align: center; /* 文本居中 */
     color: white; /* 文本颜色为白色 */
 }
 
-/* 页脚 */
 .footer-content {
-    font-size: 18px; /* 字体大小 */
+    font-size: 18px; /* 设置字体大小 */
 }

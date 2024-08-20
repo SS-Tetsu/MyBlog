@@ -11,23 +11,26 @@
 /* 页眉部分 */
 header {
     display: flex;
-    justify-content: space-between; /* 两端对齐，用户名称在左，按钮在右 */
+    justify-content: space-between;
     align-items: center;
     padding: 10px 0; /* 上下内边距，左右无内边距 */
     background-color: rgba(0, 0, 0, 0.644); /* 半透明背景色 */
     border-bottom: 2px solid black; /* 下边框作为分割线 */
     color: white; /* 文本颜色为白色 */
+    position: relative; /* 相对定位以便调整标题 */
 }
 
 .header-content {
     font-size: 24px; /* 页眉标题字体大小 */
-    text-align: center; /* 居中对齐标题 */
-    flex: 1; /* 使标题居中显示 */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* 使标题真正居中 */
 }
 
 /* 页眉中的导航按钮 */
 nav {
     display: flex;
+    margin-left: auto; /* 将按钮推到最右 */
 }
 
 nav button {
@@ -44,20 +47,10 @@ nav button:hover {
     background-color: #666; /* 悬停时背景颜色变亮 */
 }
 
-/* 新規記事追加标题区域 */
-.form-title {
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.644); /* 半透明背景色 */
-    color: white; /* 文本颜色为白色 */
-    border-bottom: 2px solid black; /* 下边框作为分割线 */
-    margin: 0; /* 取消外边距 */
-}
-
 /* 表单容器 */
 .form-container {
     width: 65%; /* 占整个网页宽度的65% */
-    margin: 50px auto; /* 自动左右边距，使其居中 */
+    margin: 20px auto; /* 自动左右边距，使其居中 */
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.644); /* 半透明背景色 */
     border-radius: 8px; /* 圆角边框 */
@@ -131,4 +124,37 @@ footer {
 
 .footer-content {
     font-size: 18px; /* 设置字体大小 */
+}
+
+/* 模态弹窗 */
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    text-align: center;
+}
+
+.modal-content {
+    color: black;
+}
+
+.modal button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modal button:hover {
+    background-color: #666;
 }
