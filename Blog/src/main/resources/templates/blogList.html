@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog List</title>
+    <link rel="stylesheet" href="blogList.css">
+</head>
+<body>
+    <img src="" id="bg-img" alt="background">
+    
+    <header>
+        <div class="username">
+            <span id="username-display">Username</span>さん、ようこそ。
+        </div>
+        <div class="header-content">Blog List</div>
+        <nav>
+            <button onclick="location.href='index.html'">Home</button>
+            <button onclick="location.href='blogRegister.html'">Blog Register</button>
+            <button onclick="location.href='deleteList.html'">Delete List</button>
+            <button onclick="location.href='login.html'">Log Out</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="blog-list">
+            <div class="blog-item" onclick="location.href='blogEdit.html?id=1'">
+                <h2>记事1</h2>
+                <img src="xxx.jpg" alt="Thumbnail for blog 1">
+                <p class="last-modified">最後編集時間：2024年8月19日</p>
+            </div>
+            <div class="blog-item" onclick="location.href='blogEdit.html?id=2'">
+                <h2>记事2</h2>
+                <img src="xxx.jpg" alt="Thumbnail for blog 2">
+                <p class="last-modified">最後編集時間：2024年8月18日</p>
+            </div>
+            <div class="blog-item" onclick="location.href='blogEdit.html?id=3'">
+                <h2>记事3</h2>
+                <img src="xxx.jpg" alt="Thumbnail for blog 3">
+                <p class="last-modified">最後編集時間：2024年8月17日</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright©2024 Tetsu Blog. All rights reserved.</p>
+    </footer>
+</body>
+</html>

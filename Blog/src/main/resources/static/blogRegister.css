@@ -1,0 +1,160 @@
+/* 设置全屏铺放背景图片 */
+#bg-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 确保背景图片在所有内容的后面 */
+}
+
+/* 页眉部分 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0; /* 上下内边距，左右无内边距 */
+    background-color: rgba(0, 0, 0, 0.644); /* 半透明背景色 */
+    border-bottom: 2px solid black; /* 下边框作为分割线 */
+    color: white; /* 文本颜色为白色 */
+    position: relative; /* 相对定位以便调整标题 */
+}
+
+.header-content {
+    font-size: 24px; /* 页眉标题字体大小 */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* 使标题真正居中 */
+}
+
+/* 页眉中的导航按钮 */
+nav {
+    display: flex;
+    margin-left: auto; /* 将按钮推到最右 */
+}
+
+nav button {
+    border-radius: 8px; /* 按钮圆角 */
+    margin-left: 15px; /* 按钮间距 */
+    padding: 9px 15px; /* 内边距 */
+    background-color: #444; 
+    color: white; 
+    border: none; 
+    cursor: pointer; /* 鼠标悬停手型 */
+}
+
+nav button:hover {
+    background-color: #666; /* 悬停时背景颜色变亮 */
+}
+
+/* 表单容器 */
+.form-container {
+    width: 65%; /* 占整个网页宽度的65% */
+    margin: 20px auto; /* 自动左右边距，使其居中 */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.644); /* 半透明背景色 */
+    border-radius: 8px; /* 圆角边框 */
+    color: white; /* 文本颜色为白色 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 居中对齐内容 */
+}
+
+/* 表单组 */
+.form-group {
+    width: 100%; /* 使表单组宽度100% */
+    max-width: 400px; /* 最大宽度 */
+    margin-bottom: 15px;
+}
+
+/* 标签与输入框 */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+input[type="text"], input[type="file"], textarea {
+    width: 100%; /* 默认宽度 */
+    max-width: 100%; /* 最大宽度为容器宽度 */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* 输入文本区域 */
+textarea {
+    resize: vertical; /* 仅允许垂直方向调整大小 */
+}
+
+/* 按钮 */
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* 使按钮容器宽度100% */
+    max-width: 400px; /* 最大宽度 */
+}
+
+button {
+    border-radius: 8px;
+    padding: 10px 20px;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #666; /* 悬停时背景颜色变亮 */
+}
+
+/* 页脚部分 */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0; /* 上下内边距，左右无内边距 */
+    background-color: rgba(0, 0, 0, 0.644); /* 半透明背景色 */
+    border-top: 2px solid black; /* 上边框作为分割线 */
+    text-align: center; /* 文本居中 */
+    color: white; /* 文本颜色为白色 */
+}
+
+.footer-content {
+    font-size: 18px; /* 设置字体大小 */
+}
+
+/* 模态弹窗 */
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    text-align: center;
+}
+
+.modal-content {
+    color: black;
+}
+
+.modal button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modal button:hover {
+    background-color: #666;
+}
