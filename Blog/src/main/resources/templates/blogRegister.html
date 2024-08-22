@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Register</title>
-    <link rel="stylesheet" href="blogRegister.css"> 
+    <link rel="stylesheet" href="blogRegister.css"> <!-- 使用静态资源链接 -->
 </head>
 <body>
+    <!-- 背景图片 -->
     <img src="大海.jpeg" id="bg-img" alt="background">
-    
+
+    <!-- 页眉部分 -->
     <header>
         <div class="header-content">Blog Register</div>
         <nav>
             <button onclick="location.href='blogList.html'">Home</button>
             <button onclick="location.href='blogRegister.html'">Blog Register</button>
-            <button onclick="location.href='deleteList.html'">Delete List</button>
-            <button onclick="location.href='login.html'">Log Out</button>
+            <button onclick="location.href='blogDeleteList.html'">Delete List</button>
+            <button onclick="location.href='logout.html'">Log Out</button>
         </nav>
     </header>
 
+    <!-- 主要内容部分 -->
     <main>
         <section class="form-container">
-            <form onsubmit="showModal(event)">
+            <form action="blogRegister" method="post" enctype="multipart/form-data" onsubmit="showModal(event)">
                 <h1>新規記事追加</h1>
                 <div class="form-group">
                     <label for="title">タイトル:</label>
@@ -51,6 +54,7 @@
         </section>
     </main>
 
+    <!-- 页脚部分 -->
     <footer>
         <p>Copyright©2024 Tetsu Blog. All rights reserved.</p>
     </footer>
@@ -63,6 +67,7 @@
         </div>
     </div>
 
+    <!-- JavaScript 脚本 -->
     <script>
         function showModal(event) {
             event.preventDefault(); // 防止表单提交刷新页面

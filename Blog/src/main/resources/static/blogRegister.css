@@ -13,33 +13,33 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0; /* 上下内边距，左右无内边距 */
+    padding: 10px 20px; /* 上下内边距，左右20px */
     background-color: rgba(0, 0, 0, 0.644); /* 半透明背景色 */
     border-bottom: 2px solid black; /* 下边框作为分割线 */
     color: white; /* 文本颜色为白色 */
-    position: relative; /* 相对定位以便调整标题 */
 }
 
+/* 中间的标题 */
 .header-content {
-    font-size: 24px; /* 页眉标题字体大小 */
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%); /* 使标题真正居中 */
+    font-size: 24px; /* 标题字体大小 */
+    text-align: center;
+    flex: 1; /* 使标题居中显示 */
 }
 
-/* 页眉中的导航按钮 */
+/* 右侧的按钮 */
 nav {
     display: flex;
-    margin-left: auto; /* 将按钮推到最右 */
+    justify-content: flex-end;
+    flex: 1; /* 使导航按钮占用右侧区域 */
 }
 
 nav button {
     border-radius: 8px; /* 按钮圆角 */
     margin-left: 15px; /* 按钮间距 */
     padding: 9px 15px; /* 内边距 */
-    background-color: #444; 
-    color: white; 
-    border: none; 
+    background-color: #444;
+    color: white;
+    border: none;
     cursor: pointer; /* 鼠标悬停手型 */
 }
 

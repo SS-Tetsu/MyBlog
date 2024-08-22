@@ -8,6 +8,15 @@
     z-index: -1; /* 确保背景图片在所有内容的后面 */
 }
 
+/* 设置背景图片在 body 元素中 */
+body {
+    background-image: url('大海.jpeg'); /* 背景图片文件名 */
+    background-size: cover; /* 图片铺满整个背景 */
+    background-position: center; /* 图片居中 */
+    background-attachment: fixed; /* 背景图片固定在视窗 */
+    margin: 0; /* 移除默认的 body 内边距 */
+}
+
 /* 页眉部分 */
 header {
     display: flex;
