@@ -1,78 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Register</title>
-    <link rel="stylesheet" href="blogRegister.css"> <!-- 使用静态资源链接 -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog Register</title>
+	<link rel="stylesheet" th:href="@{/blogRegister.css}">
 </head>
+
 <body>
-    <!-- 背景图片 -->
-    <img src="大海.jpeg" id="bg-img" alt="background">
+	<!-- 背景图片 -->
+	<img th:src="@{/大海.jpeg}" id="bg-img" alt="background">
 
-    <!-- 页眉部分 -->
-    <header>
-        <div class="header-content">Blog Register</div>
-        <nav>
-            <button onclick="location.href='blogList.html'">Home</button>
-            <button onclick="location.href='blogRegister.html'">Blog Register</button>
-            <button onclick="location.href='blogDeleteList.html'">Delete List</button>
-            <button onclick="location.href='logout.html'">Log Out</button>
-        </nav>
-    </header>
+	<!-- 页眉部分 -->
+	<header>
+		<div class="header-content">Blog Edit</div>
+		<nav>
+			<button onclick="location.href='/blog/list'">Home</button>
+			<button onclick="location.href='/blog/register'">Blog Register</button>
+			<button onclick="location.href='/account/logout'">Logout</button>
+		</nav>
+	</header>
 
-    <!-- 主要内容部分 -->
-    <main>
-        <section class="form-container">
-            <form action="blogRegister" method="post" enctype="multipart/form-data" onsubmit="showModal(event)">
-                <h1>新規記事追加</h1>
-                <div class="form-group">
-                    <label for="title">タイトル:</label>
-                    <input type="text" id="title" name="title" required>
-                </div>
-                <div class="form-group">
-                    <label for="date">日付:</label>
-                    <input type="text" id="date" name="date" placeholder="年/月/日" required>
-                </div>
-                <div class="form-group">
-                    <label for="category">カテゴリ:</label>
-                    <input type="text" id="category" name="category" required>
-                </div>
-                <div class="form-group">
-                    <label for="image">画像:</label>
-                    <input type="file" id="image" name="image" required>
-                </div>
-                <div class="form-group">
-                    <label for="details">詳細:</label>
-                    <textarea id="details" name="details" rows="10"></textarea>
-                </div>
-                <div class="form-buttons">
-                    <button type="submit">登録</button>
-                    <button type="button" onclick="location.href='blogList.html'">戻る</button>
-                </div>
-            </form>
-        </section>
-    </main>
+	<!-- 主要内容部分 -->
+	<main>
+		<section class="form-container">
+			<form th:action="@{/blog/register/process}" method="post" enctype="multipart/form-data">
+				<h1>新規記事追加</h1>
+				<div class="form-group">
+					<label for="title">タイトル:</label>
+					<input type="text" id="title" name="title" required>
+				</div>
+				<div class="form-group">
+					<label for="category">カテゴリ:</label>
+					<input type="text" id="category" name="category" required>
+				</div>
+				<div class="form-group">
+					<label for="image">画像:</label>
+					<input type="file" id="image" name="image" required>
+				</div>
+				<div class="form-group">
+					<label for="details">詳細:</label>
+					<textarea id="details" name="details" rows="10"></textarea>
+				</div>
+				<div class="form-buttons">
+					<button type="submit">登録</button>
+					<button type="button" onclick="history.back();">戻る</button>
+				</div>
+			</form>
+		</section>
+	</main>
 
-    <!-- 页脚部分 -->
-    <footer>
-        <p>Copyright©2024 Tetsu Blog. All rights reserved.</p>
-    </footer>
+	<!-- 页脚部分 -->
+	<footer>
+		<p>Copyright©2024 Tetsu Blog. All rights reserved.</p>
+	</footer>
 
-    <!-- 模态弹窗 -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="modal-message">記事登録しました。</span>
-            <button onclick="location.href='blogList.html'">記事一覧に戻る</button>
-        </div>
-    </div>
+	<!-- 模态弹窗 -->
+	<div id="modal" class="modal">
+		<div class="modal-content">
+			<span class="modal-message">記事登録しました。</span>
+			<button onclick="location.href='blogList.html'">記事一覧に戻る</button>
+		</div>
+	</div>
 
-    <!-- JavaScript 脚本 -->
-    <script>
-        function showModal(event) {
-            event.preventDefault(); // 防止表单提交刷新页面
-            document.getElementById('modal').style.display = 'block'; // 显示模态弹窗
-        }
-    </script>
+	<!-- JavaScript 脚本 -->
+	<script>
+		function showModal(event) {
+			event.preventDefault(); // 防止表单提交刷新页面
+			document.getElementById('modal').style.display = 'block'; // 显示模态弹窗
+		}
+	</script>
 </body>
+
 </html>

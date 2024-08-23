@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog List</title>
-    <link rel="stylesheet" th:href="@{/blogList.css}">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog List</title>
+	<link rel="stylesheet" th:href="@{/blogList.css}">
 </head>
+
 <body>
-    <header>
-        <div class="username">
-            <span id="username-display" th:text="${accountName}">Username</span>さん、ようこそ。
-        </div>
-        <div class="header-content">Blog List</div>
-        <nav>
-            <button th:onclick="'location.href=@{/blogList.html}'">Home</button>
-            <button th:onclick="'location.href=@{/blog/register}'">Blog Register</button>
-            <button th:onclick="'location.href=@{/blog/deleteList}'">Delete List</button>
-            <button th:onclick="'location.href=@{/account/logout}'">Logout</button>
-        </nav>
-    </header>
+	<header>
+		<div class="username">
+			<span id="username-display" th:text="${accountName}">Username</span>、ようこそ。
+		</div>
+		<div class="header-content">Blog List</div>
+		<nav>
+				<button onclick="location.href='/blog/list'">Home</button>
+				<button onclick="location.href='/blog/register'">Blog Register</button>
+				<button onclick="location.href='/account/logout'">Logout</button>
+			</nav>
+		</nav>
+	</header>
 
-    <main>
-        <section class="blog-list">
-            <!-- 使用 th:each 遍历 blogList -->
-            <div class="blog-item" th:each="blog : ${blogList}" th:onclick="'location.href=@{/blogEdit.html?id=' + ${blog.blogId}}">
-                <h2 th:text="${blog.blogTitle}">记事</h2>
-                <img th:src="@{${blog.blogImage}}" alt="Thumbnail for blog">
-                <p class="last-modified" th:text="'最後編集時間：' + ${blog.lastModified}">最後編集時間：</p>
-            </div>
-        </section>
-    </main>
+	<main>
+		<section class="blog-list">
+			<div class="blog-item" th:each="blog:${blogList}">
+				<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
+					<h2 th:text="${blog.blogTitle}"></h2>
+					<img th:src="@{/blog-img/{imagePath}(imagePath=${blog.blogImage})}" alt="">
+			</div>
+		</section>
+	</main>
 
-    <footer>
-        <p>Copyright©2024 Tetsu Blog. All rights reserved.</p>
-    </footer>
+	<footer>
+		<p>Copyright©2024 Tetsu Blog. All rights reserved.</p>
+	</footer>
 </body>
+
 </html>
