@@ -1,121 +1,127 @@
-/* 设置全屏铺放背景图片 */
 #bg-img {
-    position: fixed; /* 固定定位 */
-    top: 0; /* 顶部对齐 */
-    left: 0; /* 左侧对齐 */
-    width: 100%; /* 宽度100% */
-    height: 100%; /* 高度100% */
-    z-index: -1; /* 背景图层在所有内容之下 */
+    position: fixed; 
+    top: 0;
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: -1; /* 全部要素の後ろに配置 */
 }
 
-/* 页眉部分 */
 header {
-    display: flex; /* 使用flex布局 */
-    justify-content: center; /* 水平居中对齐标题 */
-    align-items: center; /* 垂直居中对齐内容 */
-    padding: 10px 20px; /* 上下10px，左右20px的内边距 */
-    background-color: rgba(0, 0, 0, 0.644); /* 半透明黑色背景 */
-    border-bottom: 2px solid black; /* 下边框分割线 */
-    color: white; /* 白色文本 */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; /* 垂直中央配置 */
+    padding: 10px 20px; /* 上下10px、左右20px余白 */
+    background-color: rgba(0, 0, 0, 0.644); /* 黒背景 */
+    border-bottom: 2px solid black; /* 黒い線追加 */
+    color: white; 
 }
 
-/* 页眉中的标题 */
+/* ヘッダータイトル */
 .header-content {
-    font-size: 24px; /* 标题字体大小 */
-    text-align: center; /* 标题居中显示 */
+    font-size: 24px; 
+    text-align: center; 
+    color: white; 
 }
 
-/* 页眉中的导航按钮 */
+/* ヘッダー　ボタン */
 nav {
-    display: flex; /* 使用flex布局 */
-    margin-left: auto; /* 将导航按钮推到右侧 */
+    display: flex; 
+    margin-left: auto; /* 右側に配置 */
 }
 
-nav button {
-    border-radius: 8px; /* 按钮圆角 */
-    margin-left: 15px; /* 按钮之间的间距 */
-    padding: 9px 15px; /* 按钮内边距 */
-    background-color: #444; /* 按钮背景颜色 */
-    color: white; /* 按钮文字颜色 */
-    border: none; /* 去掉按钮边框 */
-    cursor: pointer; /* 鼠标悬停时显示手型光标 */
+button {
+    border-radius: 8px; 
+    margin-left: 15px; 
+    padding: 9px 15px; 
+    background-color: #444; 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+    transition: background-color 0.3s; /* 背景色変化アニメーション */
 }
 
-nav button:hover {
-    background-color: #666; /* 悬停时按钮背景颜色 */
+button:hover {
+    background-color: #666; 
 }
 
-/* 主体内容区 */
+/* メインコンテンツ */
 main {
-    display: flex; /* 使用flex布局 */
-    justify-content: center; /* 内容水平居中 */
-    align-items: center; /* 内容垂直居中 */
-    height: calc(100vh - 160px); /* 主体内容高度，减去页眉和页脚的高度 */
-    padding: 20px; /* 主体内容内边距 */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: calc(100vh - 160px); /* ヘッダーフッター以外の高さ*/
+    padding: 20px; 
 }
 
-/* 表单容器样式 */
+/* フォームコンテナ */
 .form-container {
-    width: 60%; /* 表单宽度占页面60% */
-    background-color: rgba(0, 0, 0, 0.644); /* 半透明背景 */
-    padding: 20px; /* 内边距 */
-    border-radius: 8px; /* 圆角边框 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 阴影效果 */
-    text-align: center; /* 表单内容居中 */
+    width: 60%; 
+    background-color: rgba(0, 0, 0, 0.644); 
+    padding: 20px; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center; 
+    color: white;
 }
 
-/* 表单元素样式 */
+/* 要素 */
 .form-group {
-    margin-bottom: 15px; /* 元素底部间距 */
+    margin-bottom: 15px;
 }
 
 .form-group label {
-    display: block; /* 标签作为块级元素 */
-    margin-bottom: 5px; /* 标签底部间距 */
-    color: white; /* 标签文字颜色变为白色 */
-    text-align: left; /* 标签文本左对齐 */
+    display: block; /* ブロック要素として表示 */
+    margin-bottom: 5px; 
+    color: white; 
+    text-align: left; 
 }
 
 .form-group input, .form-group textarea {
-    width: 50%; /* 输入框和文本区域宽度占容器50% */
-    padding: 8px; /* 内边距 */
-    border-radius: 4px; /* 圆角边框 */
-    border: 1px solid #000000; /* 边框颜色 */
-    margin: 0 auto; /* 输入框和文本区域水平居中 */
+    width: 50%; /* 入力幅は容器の50% */
+    padding: 8px; 
+    border-radius: 4px; 
+    border: 1px solid #000000; 
+    margin: 0 auto; 
 }
 
-/* 文件选择提示语样式 */
+/* ファイル選択のラベルのスタイル */
 .form-group input[type="file"] + label {
-    color: white; /* 文件选择提示语颜色变为白色 */
+    color: white; 
 }
 
-/* 記事編集标题样式 */
+/* 記事編集 */
 .form-title {
-    font-size: 24px; /* 标题字体大小 */
-    color: white; /* 标题颜色为白色 */
-    margin-bottom: 20px; /* 标题底部间距 */
+    font-size: 24px;
+    color: white;
+    margin-bottom: 20px;
 }
 
-/* 表单按钮样式 */
+/* ボタン */
 .form-buttons {
-    display: flex; /* 使用flex布局 */
-    justify-content: space-between; /* 按钮间隔分开显示 */
+    display: flex; 
+    justify-content: center;
+    gap: 15px; 
+    margin-top: 20px;
 }
 
-.form-buttons button {
-    padding: 10px 20px; /* 按钮内边距 */
-    border-radius: 8px; /* 按钮圆角 */
-    border: none; /* 去掉按钮边框 */
-    cursor: pointer; /* 鼠标悬停时显示手型光标 */
-    margin: 0 240px; /* 调整左右按钮之间的距离 */
+/* 削除ボタンル */
+.register-section-details_flex .register {
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    border: none; 
+    cursor: pointer; 
+    background-color: #444; 
+    color: white; 
 }
 
-.form-buttons button[type="submit"] {
-    background-color: #444; /* 提交按钮背景颜色 */
-    color: white; /* 提交按钮文字颜色 */
+.register-section-details_flex .register:hover {
+    background-color: #666; 
 }
 
-.form-buttons button[type="button"] {
-    background-color: #444; /* 返回按钮背景颜色 */
-    color: white; /* 返回按钮文字颜色 */
+footer {
+    text-align: center;
+    padding: 10px; 
+    background-color: rgba(0, 0, 0, 0.644); 
+    color: white; 
 }

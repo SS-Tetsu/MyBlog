@@ -12,21 +12,21 @@ import blog.com.models.entity.Blog;
 @Repository
 @Transactional
 public interface BlogDao extends JpaRepository<Blog, Long> {
-    // 保存 Blog 实体
+    // Blogエンティティを保存する
     Blog save(Blog blog);
 
-    // 查询所有 Blog 实体
+    // すべてのBlogエンティティを検索する
     List<Blog> findAll();
 
-    // 根据标题查询 Blog 实体
-    Blog findByBlogTitle(String blogTitle); // 确保参数名与实体类中的字段名一致
+    // タイトルでBlogエンティティを検索する
+    Blog findByBlogTitle(String blogTitle); // エンティティのフィールド名に一致させること
 
-    // 根据 ID 查询 Blog 实体
+    // IDでBlogエンティティを検索する
     Blog findByBlogId(Long blogId);
 
-    // 根据 ID 删除 Blog 实体
+    // IDでBlogエンティティを削除する
     void deleteByBlogId(Long blogId);
 
-    // 根据 accountId 查询 Blog 实体列表
-    List<Blog> findByAccountId(Long accountId); // 添加此方法
+    // accountIdでBlogエンティティリストを検索する
+    List<Blog> findByAccountId(Long accountId); // このメソッドを追加
 }

@@ -5,236 +5,64 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Blog Edit</title>
-	<link rel="stylesheet" th:href="@{/blogEdit.css}">
-	<style>
-		#bg-img {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: -1;
-			/* 背景图层在所有内容之下 */
-		}
-
-		/* 页眉中的标题 */
-		.header-content {
-			font-size: 24px;
-			/* 标题字体大小 */
-			text-align: center;
-			/* 标题居中显示 */
-		}
-
-		/* 页眉中的导航按钮 */
-		nav {
-			display: flex;
-			/* 使用flex布局 */
-			margin-left: auto;
-			/* 将导航按钮推到右侧 */
-		}
-
-		nav button {
-			border-radius: 8px;
-			/* 按钮圆角 */
-			margin-left: 15px;
-			/* 按钮之间的间距 */
-			padding: 9px 15px;
-			/* 按钮内边距 */
-			background-color: #444;
-			/* 按钮背景颜色 */
-			color: white;
-			/* 按钮文字颜色 */
-			border: none;
-			/* 去掉按钮边框 */
-			cursor: pointer;
-			/* 鼠标悬停时显示手型光标 */
-		}
-
-		nav button:hover {
-			background-color: #666;
-			/* 悬停时按钮背景颜色 */
-		}
-
-		/* 主体内容区 */
-		main {
-			display: flex;
-			/* 使用flex布局 */
-			justify-content: center;
-			/* 内容水平居中 */
-			align-items: center;
-			/* 内容垂直居中 */
-			height: calc(100vh - 160px);
-			/* 主体内容高度，减去页眉和页脚的高度 */
-			padding: 20px;
-			/* 主体内容内边距 */
-		}
-
-		/* 表单容器样式 */
-		.form-container {
-			width: 60%;
-			/* 表单宽度占页面60% */
-			background-color: rgba(0, 0, 0, 0.644);
-			/* 半透明背景 */
-			padding: 20px;
-			/* 内边距 */
-			border-radius: 8px;
-			/* 圆角边框 */
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-			/* 阴影效果 */
-			text-align: center;
-			/* 表单内容居中对齐 */
-		}
-
-		/* 表单元素样式 */
-		.form-group {
-			margin-bottom: 15px;
-			/* 元素底部间距 */
-			text-align: center;
-			/* 输入框居中对齐 */
-		}
-
-		.form-group label {
-			display: block;
-			/* 标签作为块级元素 */
-			margin-bottom: 5px;
-			/* 标签底部间距 */
-			color: white;
-			/* 标签文字颜色变为白色 */
-		}
-
-		.form-group input,
-		.form-group textarea {
-			width: 50%;
-			/* 输入框和文本区域宽度占容器50% */
-			padding: 8px;
-			/* 内边距 */
-			border-radius: 4px;
-			/* 圆角边框 */
-			border: 1px solid #000000;
-			/* 边框颜色 */
-		}
-
-		.form-group input[type="file"] {
-			color: white;
-			/* 文件选择输入框文字颜色 */
-		}
-
-		/* 表单按钮样式 */
-		.form-buttons {
-			display: flex;
-			justify-content: space-between;
-		}
-
-		.form-buttons button {
-			padding: 10px 20px;
-			/* 按钮内边距 */
-			border-radius: 8px;
-			border: none;
-			cursor: pointer;
-			/* 鼠标悬停光标 */
-		}
-
-		.form-buttons button[type="submit"] {
-			background-color: #444;
-			/* 提交按钮背景颜色 */
-			color: white;
-			/* 提交按钮文字颜色 */
-		}
-
-		.form-buttons button[type="button"] {
-			background-color: #444;
-			/* 返回按钮背景颜色 */
-			color: white;
-			/* 返回按钮文字颜色 */
-		}
-
-		h1 {
-			color: white;
-			/* 将記事編集的标题颜色变为白色 */
-			text-align: center;
-			/* 文字居中 */
-		}
-
-		/* 弹出消息的样式 */
-		.modal {
-			display: none;
-			/* 默认隐藏 */
-			position: fixed;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(0, 0, 0, 0.5);
-			/* 半透明背景 */
-			justify-content: center;
-			align-items: center;
-		}
-
-		.modal-content {
-			background: white;
-			padding: 20px;
-			border-radius: 8px;
-			text-align: center;
-		}
-
-		.modal-content button {
-			margin-top: 15px;
-			padding: 10px 20px;
-			border-radius: 4px;
-			border: none;
-			background-color: #444;
-			color: white;
-			cursor: pointer;
-		}
-
-		.modal-content button:hover {
-			background-color: #666;
-		}
-	</style>
+	<link rel="stylesheet" th:href="@{/blogEdit.css}"> <!-- ThymeleafでのCSSファイルリンク -->
 </head>
 
 <body>
+	<!-- 背景画像 -->
 	<img th:src="@{/大海.jpeg}" id="bg-img" alt="background">
 
 	<header>
-		<div class="header-content">Blog Edit</div>
+		<div class="header-content">Blog Edit</div><!-- ページタイトルを表示 -->
 		<nav>
+			<!-- Homeボタン、クリックでブログリストに移動 -->
 			<button onclick="location.href='/blog/list'">Home</button>
+			<!-- Blog Registerボタン、クリックで新規記事登録ページに移動 -->
 			<button onclick="location.href='/blog/register'">Blog Register</button>
+			<!-- Logoutボタン、クリックでログアウト -->
 			<button onclick="location.href='/account/logout'">Logout</button>
 		</nav>
 	</header>
 
 	<main>
 		<section class="form-container">
+			<!-- ブログ編集フォーム、POSTメソッドで送信 -->
 			<form id="edit-form" th:action="@{/blog/edit/process}" method="post" enctype="multipart/form-data">
 				<h1>記事編集</h1>
 				<div class="form-group">
+					<!-- タイトル入力欄 -->
 					<label for="title">タイトル:</label>
 					<input type="text" id="title" name="blogTitle" th:value="${blog.blogTitle}" required>
 				</div>
-<!--				<div class="form-group">-->
-<!--					<label for="date">日付:</label>-->
-<!--					<input type="text" id="date" name="date" placeholder="年/月/日" required>-->
-<!--				</div>-->
+
 				<div class="form-group">
+					<!-- カテゴリ入力欄 -->
 					<label for="category">カテゴリ:</label>
-					<input type="text" id="category" name="categoryName" th:value="${blog.categoryName}"required>
+					<!-- カテゴリ入力欄 -->
+					<input type="text" id="category" name="categoryName" th:value="${blog.categoryName}" required>
 				</div>
+
 				<div class="form-group">
+					<!-- 画像選択 -->
 					<label for="image">画像:</label>
 					<input type="file" id="image" name="blogImage">
 				</div>
+
 				<div class="form-group">
+					<!-- 記事内容 テキストエリア-->
 					<label for="details">詳細:</label>
 					<textarea id="details" name="article" th:text="${blog.article}" rows="10"></textarea>
 				</div>
+
 				<div class="form-buttons">
 					<input type="hidden" name="blogId" th:value="${blog.blogId}">
+					<!-- 保存ボタン -->
 					<button type="submit">保存</button>
-					<button type="button" onclick="history.back();" >戻る</button>
+					<!-- 戻るボタン -->
+					<button type="button" onclick="history.back();">戻る</button>
 				</div>
 			</form>
+			<!-- 削除ボタン、フォーム送信で削除処理 -->
 			<form th:action="@{/blog/delete}" method="post">
 				<div class="register-section-details_flex">
 					<input type="hidden" name="blogId" th:value="${blog.blogId}">
@@ -247,22 +75,6 @@
 	<footer>
 		<p>Copyright©2024 Tetsu Blog. All rights reserved.</p>
 	</footer>
-
-	<!-- 弹出消息框 -->
-<!--	<div id="modal" class="modal">-->
-<!--		<div class="modal-content">-->
-<!--			<p>記事登録しました。</p>-->
-<!--			<button onclick="window.location.href='blogList.html'">記事一覧に戻る</button>-->
-<!--		</div>-->
-<!--	</div>-->
-
-<!--	<script>-->
-<!--		document.getElementById('edit-form').addEventListener('submit', function (event) {-->
-<!--			event.preventDefault(); // 防止表单默认提交行为-->
-<!--			document.getElementById('modal').style.display = 'flex'; // 显示弹出框-->
-<!--		});-->
-<!--	</script>-->
-
 </body>
 
 </html>

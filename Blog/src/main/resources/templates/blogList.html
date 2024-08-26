@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Blog List</title>
-	<link rel="stylesheet" th:href="@{/blogList.css}">
+	<link rel="stylesheet" th:href="@{/blogList.css}"> <!-- ThymeleafでのCSSファイルリンク -->
 </head>
 
 <body>
@@ -13,23 +13,31 @@
 		<div class="username">
 			<span id="username-display" th:text="${accountName}">Username</span>、ようこそ。
 		</div>
-		<div class="header-content">Blog List</div>
+		<div class="header-content">Blog List</div> <!-- 「Blog List」表示 -->
 		<nav>
-				<button onclick="location.href='/blog/list'">Home</button>
-				<button onclick="location.href='/blog/register'">Blog Register</button>
-				<button onclick="location.href='/account/logout'">Logout</button>
-			</nav>
+			<!-- 「Home」ボタン、クリックでブログリストページに移動 -->
+			<button onclick="location.href='/blog/list'">Home</button>
+			<!-- 「Blog Register」ボタン、クリックでブログ登録ページに移動 -->
+			<button onclick="location.href='/blog/register'">Blog Register</button>
+			<!-- 「Logout」ボタン、クリックでログアウトページに移動 -->
+			<button onclick="location.href='/account/logout'">Logout</button>
 		</nav>
 	</header>
 
 	<main>
-		<section class="blog-list">
-			<div class="blog-item" th:each="blog:${blogList}">
-				<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
-					<h2 th:text="${blog.blogTitle}"></h2>
-					<img th:src="@{/blog-img/{imagePath}(imagePath=${blog.blogImage})}" alt="">
-			</div>
-		</section>
+		<!-- ブログリストのコンテナ -->
+		<div class="blog-list-container">
+			<section class="blog-list">
+				<div class="blog-item" th:each="blog : ${blogList}">
+					<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}"> <!-- ブログ編集のリンク -->
+						<!-- タイトルを表示（Thymeleafで動的にタイトルを設定） -->
+						<h2 th:text="${blog.blogTitle}">Title</h2>
+						<!-- ブログ画像を表示（Thymeleafで画像パスを設定） -->
+						<img th:src="@{/blog-img/{imagePath}(imagePath=${blog.blogImage})}" alt="Blog Image">
+					</a>
+				</div>
+			</section>
+		</div>
 	</main>
 
 	<footer>

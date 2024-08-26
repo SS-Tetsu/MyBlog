@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" th:href="@{/register.css}">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Register</title> <!-- ページタイトル -->
+	<link rel="stylesheet" th:href="@{/register.css}">
 </head>
+
 <body>
-	<video autoplay muted loop id="bg-video" th:src="@{/高楼视频.mp4}">
-	        Your browser does not support the video tag.
-	    </video>
-    <main>
-        <section class="register">
-            <h1>Register</h1>
-            <form class="register-form" th:action="@{/account/register/process}" method="post">
-                <div class="control-group">
-                    <label class="register-field-icon" for="register-name">Username</label>
-                    <input type="text" class="register-field" placeholder="Enter your username" id="register-name" name="name" required>
-                </div>
-                <div class="control-group">
-                    <label class="register-field-icon" for="register-email">Email</label>
-                    <input type="email" class="register-field" placeholder="Enter your email" id="register-email" name="email" required>
-                </div>
-                <div class="control-group">
-                    <label class="register-field-icon" for="register-pass">Password</label>
-                    <input type="password" class="register-field" placeholder="Enter your password" id="register-pass" name="pass" required>
-                </div>
-                <div class="control-group">
-                    <button type="submit" class="btn">Register</button>
-                </div>
-                <div class="control-group link">
-                    <a th:href="@{/login}" class="register-link">Already have an account? Login here</a>
-                </div>
-            </form>
-        </section>
-    </main>
+	<video autoplay muted loop id="bg-video" th:src="@{/高楼视频.mp4}"> <!-- 背景ビデオ、繰り返し再生、音声なし -->
+		Your browser does not support the video tag.
+	</video>
+	<main>
+		<section class="register">
+			<h1>Register</h1> <!-- タイトル -->
+			<form class="register-form" th:action="@{/account/register/process}" method="post">
+				<div class="control-group"> <!-- ユーザー名入力 -->
+					<label class="register-field-icon" for="register-name">Username</label>
+					<input type="text" class="register-field" placeholder="Enter your username" id="register-name"
+						name="name" required>
+				</div>
+				<div class="control-group"> <!-- メールアドレス入力 -->
+					<label class="register-field-icon" for="register-email">Email</label>
+					<input type="email" class="register-field" placeholder="Enter your email" id="register-email"
+						name="email" required>
+				</div>
+				<div class="control-group"> <!-- パスワード入力 -->
+					<label class="register-field-icon" for="register-pass">Password</label>
+					<input type="password" class="register-field" placeholder="Enter your password" id="register-pass"
+						name="pass" required>
+				</div>
+				<div class="control-group"> <!-- 登録ボタン -->
+					<button type="submit" class="btn">Register</button>
+				</div>
+				<div class="control-group link"> <!-- ログインページ -->
+					<a th:href="@{/login}" class="register-link">Already have an account? Login here</a>
+					<!-- アカウントを持っている場合のログインリンク -->
+				</div>
+			</form>
+		</section>
+	</main>
 </body>
+
 </html>

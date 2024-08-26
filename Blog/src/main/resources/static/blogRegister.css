@@ -1,160 +1,133 @@
-/* 设置全屏铺放背景图片 */
+/* 背景画像全画面表示 */
 #bg-img {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: fixed; /* 位置を固定 */
+    top: 0; 
+    left: 0; 
     width: 100%;
     height: 100%;
-    z-index: -1; /* 确保背景图片在所有内容的后面 */
+    z-index: -1; /* 全てコンテンツ背面に表示 */
 }
 
-/* 页眉部分 */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px; /* 上下内边距，左右20px */
-    background-color: rgba(0, 0, 0, 0.644); /* 半透明背景色 */
-    border-bottom: 2px solid black; /* 下边框作为分割线 */
-    color: white; /* 文本颜色为白色 */
+    display: flex; 
+    justify-content: space-between; /* 左右に配置 */
+    align-items: center; /* 垂直方向中央揃え */
+    padding: 10px 20px; /* 上下10px 左右20px内側余白 */
+    background-color: rgba(0, 0, 0, 0.644); /* 背景色 */
+    border-bottom: 2px solid black; /* 区切り線 */
+    color: white; 
 }
 
-/* 中间的标题 */
+/* 中央タイトル */
 .header-content {
-    font-size: 24px; /* 标题字体大小 */
-    text-align: center;
-    flex: 1; /* 使标题居中显示 */
+    font-size: 24px; 
+    text-align: center; 
+    flex: 1;
 }
 
-/* 右侧的按钮 */
+/* 右側ボタン */
 nav {
     display: flex;
-    justify-content: flex-end;
-    flex: 1; /* 使导航按钮占用右侧区域 */
+    justify-content: flex-end; /* ボタンを右端に配置 */
+    flex: 1; /* ナビゲーションエリアを右側に拡張 */
 }
 
 nav button {
-    border-radius: 8px; /* 按钮圆角 */
-    margin-left: 15px; /* 按钮间距 */
-    padding: 9px 15px; /* 内边距 */
-    background-color: #444;
-    color: white;
-    border: none;
-    cursor: pointer; /* 鼠标悬停手型 */
+    border-radius: 8px; /* 角丸 */
+    margin-left: 15px; /* 左側余白 */
+    padding: 9px 15px; /* 内側余白 */
+    background-color: #444; /* 背景色 */
+    color: white; /* テキスト白 */
+    border: none; /* ボーダー非表示 */
+    cursor: pointer; /* カーソル手に変わる */
 }
 
 nav button:hover {
-    background-color: #666; /* 悬停时背景颜色变亮 */
+    background-color: #666; /* ホバー時の色変更 */
 }
 
-/* 表单容器 */
+/* フォームコンテナ */
 .form-container {
-    width: 65%; /* 占整个网页宽度的65% */
-    margin: 20px auto; /* 自动左右边距，使其居中 */
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.644); /* 半透明背景色 */
-    border-radius: 8px; /* 圆角边框 */
-    color: white; /* 文本颜色为白色 */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 居中对齐内容 */
+    width: 65%; /* 幅ページの65% */
+    margin: 20px auto; /* 上下余白、左右自動中央揃え */
+    padding: 20px; /* 内側余白 */
+    background-color: rgba(0, 0, 0, 0.644); /* 背景色 */
+    border-radius: 8px; /* 角を8pxの半径で丸める */
+    color: white; 
+    display: flex; 
+    flex-direction: column; /* 子要素縦に並べる */
+    align-items: center; /* 中央揃え */
 }
 
-/* 表单组 */
+/* フォームグループ */
 .form-group {
-    width: 100%; /* 使表单组宽度100% */
-    max-width: 400px; /* 最大宽度 */
-    margin-bottom: 15px;
+    width: 100%; 
+    max-width: 400px; /* 幅400px制限 */
+    margin-bottom: 15px; /* 下側余白 */
 }
 
-/* 标签与输入框 */
+/* 入力フィールド */
 label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 18px;
+    display: block; /* ブロックレベル要素として表示 */
+    margin-bottom: 5px; /* 下側に5pxの余白を設定 */
+    font-size: 18px; /* フォントサイズを18pxに設定 */
 }
 
+/* テキスト入力　ファイル選択　テキストエリア */
 input[type="text"], input[type="file"], textarea {
-    width: 100%; /* 默认宽度 */
-    max-width: 100%; /* 最大宽度为容器宽度 */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    width: 100%; 
+    max-width: 100%;
+    padding: 10px; /* 内側余白 */
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
     font-size: 16px;
 }
 
-/* 输入文本区域 */
 textarea {
-    resize: vertical; /* 仅允许垂直方向调整大小 */
+    resize: vertical; /* 垂直方向サイズ変更可能 */
 }
 
-/* 按钮 */
+/* ボタン */
 .form-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 100%; /* 使按钮容器宽度100% */
-    max-width: 400px; /* 最大宽度 */
+    display: flex; 
+    justify-content: space-between; /* 左右に配置 */
+    width: 100%; 
+    max-width: 400px; 
 }
 
 button {
     border-radius: 8px;
-    padding: 10px 20px;
-    background-color: #444;
-    color: white;
-    border: none;
-    cursor: pointer;
+    padding: 10px 20px; 
+    background-color: #444; 
+    color: white; 
+    border: none; /* ボーダー非表示 */
+    cursor: pointer; /* カーソルが手に変わる */
 }
 
 button:hover {
-    background-color: #666; /* 悬停时背景颜色变亮 */
+    background-color: #666; 
 }
 
-/* 页脚部分 */
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px 0; /* 上下内边距，左右无内边距 */
-    background-color: rgba(0, 0, 0, 0.644); /* 半透明背景色 */
-    border-top: 2px solid black; /* 上边框作为分割线 */
-    text-align: center; /* 文本居中 */
-    color: white; /* 文本颜色为白色 */
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    padding: 10px 0; 
+    background-color: rgba(0, 0, 0, 0.644); 
+    border-top: 2px solid black;
+    text-align: center; /* 中央揃え */
+    color: white; 
 }
 
 .footer-content {
-    font-size: 18px; /* 设置字体大小 */
+    font-size: 18px; 
 }
 
-/* 模态弹窗 */
+/* 通信窓口 */
 .modal {
-    display: none; /* 默认隐藏 */
-    position: fixed;
+    display: none;
+    position: fixed; 
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    z-index: 1000;
-    text-align: center;
-}
-
-.modal-content {
-    color: black;
-}
-
-.modal button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #444;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.modal button:hover {
-    background-color: #666;
-}
+    transform: translate(-50

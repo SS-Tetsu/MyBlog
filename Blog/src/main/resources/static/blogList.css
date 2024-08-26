@@ -1,66 +1,127 @@
-/* 设置全屏铺放背景图片 */
+/* 背景画像 */
 body {
-    margin: 0;
+    margin: 0; 
     padding: 0;
-    background-image: url('大海.jpeg');
-    background-size: cover; /* 确保背景图像覆盖整个页面 */
+    background: url('大海.jpeg') center/cover no-repeat; /* 画像中央配置 */
 }
 
-/* 页眉部分 */
+/* ヘッダー部分 */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px; /* 上下内边距，左右20px */
-    background-color: rgba(0, 0, 0, 0.644); /* 半透明背景色 */
-    border-bottom: 2px solid black; /* 下边框作为分割线 */
-    color: white; /* 文本颜色为白色 */
+    display: flex; 
+    justify-content: space-between; /* 内容を両辺に配置 */
+    align-items: center; /* 内容を垂直に中央 */
+    padding: 10px 20px; 
+    background-color: rgba(0, 0, 0, 0.644); /* 背景色 */
+    border-bottom: 2px solid black; /* 下部に線を追加 */
+    color: white; /* テキストの色 */
 }
 
 .username {
-    font-size: 18px;
+    font-size: 18px; /* ユーザー名Size */
 }
 
 .header-content {
-    font-size: 24px; /* 标题字体大小 */
-    text-align: center;
-    flex: 1; /* 使标题居中显示 */
+    position: absolute; /* タイトル位置設定 */
+    left: 50%; /* タイトルの左端を50%に配置 */
+    transform: translateX(-50%); /* タイトルを中央揃えにする */
+    font-size: 24px; /* タイトルのフォントサイズ */
+    text-align: center; /* タイトルを中央揃え */
 }
 
-/* 右侧的按钮 */
 nav {
-    display: flex;
-    justify-content: flex-end;
-    flex: 1; /* 使导航按钮占用右侧区域 */
+    display: flex; /* フレックスボックスレイアウトを使用 */
+    justify-content: flex-end; /* ナビゲーションボタンを右端に配置 */
+    flex: 1; /* ナビゲーション部分をフレックスボックスで右側に寄せる */
 }
 
 nav button {
-    border-radius: 8px; /* 按钮圆角 */
-    margin-left: 15px; /* 按钮间距 */
-    padding: 9px 15px; /* 内边距 */
-    background-color: #444;
-    color: white;
-    border: none;
-    cursor: pointer; /* 鼠标悬停手型 */
+    border-radius: 8px;
+    margin-left: 15px; /* ボタン間隔 */
+    padding: 9px 15px; /* ボタン内側余白 */
+    background-color: #444; /* ボタンの背景色 */
+    color: white; /* テキスト色は白 */
+    border: none; /* ボーダーなし */
+    cursor: pointer; /* カーソルを手に変更 */
 }
 
 nav button:hover {
-    background-color: #666; /* 悬停时背景颜色变亮 */
+    background-color: #666; /* カーソル選択時明るく */
 }
 
-/* 页脚部分 */
+/* blogList */
+.blog-list-container {
+    width: 80%; /* 幅はページの80%設定 */
+    min-height: 75vh; /* 最小高さを窓口の75% */
+    margin: 40px auto; /* 上下40px、左右自動中心 */
+    padding: 20px; /* 内側の余白 */
+    background-color: rgba(0, 0, 0, 0.644); /* 背景色設定 */
+    border-radius: 10px; /* 角を丸くする */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* 陰影を追加 */
+    overflow: hidden; /* 背景超えない設定 */
+}
+
+.blog-list {
+    margin: 0; /* 外側余白削除 */
+    padding: 0; /* 内側余白削除 */
+}
+
+.blog-item {
+    float: left; /* 左に浮動 */
+    width: 250px; /* 幅 */
+    height: 250px; /* 高さ */
+    padding: 10px; /* 内側余白 */
+    background-color: #444; /* 背景色グレー */
+    border-radius: 8px; /* 角丸 */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* 陰影を追加 */
+    display: flex; /* フレックスボックスレイアウトで配置 */
+    flex-direction: column; /* 縦に並べる */
+    align-items: center; /* 水平に中央揃え */
+    justify-content: center; /* 垂直に中央揃え */
+    gap: 10px; /* スペース */
+    margin: 20px; /* 外側余白 */
+}
+
+/*背景に支持のような設定 */
+.blog-list::after {
+    content: ""; 
+    display: table; /* テーブルとして表示 */
+    clear: both; 
+}
+
+/* ブログ画像 */
+.blog-item img {
+    width: 200px;
+    height: 200px; 
+    border-radius: 8px;
+    object-fit: cover; /* 比率を維持し全体カバー */
+}
+
+/* ブログタイトル */
+.blog-item h2 {
+    color: #ffffff; 
+    text-align: center; /* 中央揃え */
+}
+
+.blog-category {
+    font-size: 14px; /* フォントサイズ */
+    color: #ccc; 
+}
+
+/* ブログ説明 */
+.blog-description {
+    font-size: 14px; 
+    color: #ddd; 
+}
+
+/* フッター部分 */
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px 0; /* 上下内边距，左右无内边距 */
-    background-color: rgba(0, 0, 0, 0.644); /* 半透明背景色 */
-    border-top: 2px solid black; /* 上边框作为分割线 */
-    text-align: center; /* 文本居中 */
-    color: white; /* 文本颜色为白色 */
-}
-
-.footer-content {
-    font-size: 18px; /* 设置字体大小 */
+    position: fixed; /* 固定位置設定 */
+    bottom: 0; /* ページの下端に配置 */
+    left: 0; /* フッターを左端に配置 */
+    width: 100%; /* 幅は100% */
+    padding: 1px 20px; /* 内側の余白 */
+    background-color: rgba(0, 0, 0, 0.644); /* 背景色 */
+    border-top: 2px solid black; /* 上に黒い線追加 */
+    text-align: center; /* テキストを中央揃え */
+    color: white; /* 
 }
