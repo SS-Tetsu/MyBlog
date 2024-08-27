@@ -7,12 +7,13 @@ import blog.com.models.entity.Account;
 
 @Repository
 public interface AccountDao extends JpaRepository<Account, Long> {
-	
-	Account save(Account account);
-	
-	Account findByAccountEmail(String accountEmail);
-	
-	Account findByAccountEmailAndPassword(String accountEmail,String password);
-	
 
+	// Accountエンティティを保存する
+	Account save(Account account);
+
+	// メールアドレスでAccountエンティティを検索する
+	Account findByAccountEmail(String accountEmail);
+
+	// メールアドレスとパスワードでAccountエンティティを検索する
+	Account findByAccountEmailAndPassword(String accountEmail, String password);
 }

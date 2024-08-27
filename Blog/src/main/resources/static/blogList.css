@@ -17,7 +17,7 @@ header {
 }
 
 .username {
-    font-size: 18px; /* ユーザー名Size */
+    font-size: 18px; /* ユーザー名のサイズ */
 }
 
 .header-content {
@@ -81,7 +81,7 @@ nav button:hover {
     margin: 20px; /* 外側余白 */
 }
 
-/*背景に支持のような設定 */
+/* 背景に支持のような設定 */
 .blog-list::after {
     content: ""; 
     display: table; /* テーブルとして表示 */
@@ -123,5 +123,5 @@ footer {
     background-color: rgba(0, 0, 0, 0.644); /* 背景色 */
     border-top: 2px solid black; /* 上に黒い線追加 */
     text-align: center; /* テキストを中央揃え */
-    color: white; /* 
+    color: white; /* テキストの色 */
 }

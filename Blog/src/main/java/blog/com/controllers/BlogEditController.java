@@ -21,36 +21,37 @@ import blog.com.models.entity.Account;
 import blog.com.models.entity.Blog;
 import blog.com.services.BlogService;
 
-@Controller
+@Controller    // コントローラとして定義
 public class BlogEditController {
-	@Autowired
+
+	@Autowired // BlogServiceを自動的に注入
 	private BlogService blogService;
 
-	@Autowired
+	@Autowired // HTTPセッションを自動的に注入
 	private HttpSession session;
 
-	// 編集画面の表示
+	// 編集画面表示
 	@GetMapping("/blog/edit/{blogId}")
 	public String getBlogEditPage(@PathVariable Long blogId, Model model) {
-		// セッションからログインしている人の情報をadminという変数に格納
+		// セッションからログインしているaccount情報を取得
 		Account account = (Account) session.getAttribute("loginAccountInfo");
-		// もしaccount == null ログイン画面にリダイレクトする
+
+		// ログインしていない場合、ログインページへリダイレクト
 		if (account == null) {
 			return "redirect:/account/login";
 		} else {
-			// 編集画面に表示させる情報を変数に格納 blog
+			// 編集するブログ情報を取得
 			Blog blog = blogService.blogEditCheck(blogId);
-			// もしblog==nullだったら、商品一覧ページにリダイレクトする
-			// そうでない場合、編集画面に編集する内容を渡す
-			// 編集画面を表示
+
+			// ブログが存在しない場合、ブログ一覧ページへリダイレクト
 			if (blog == null) {
 				return "redirect:/blog/list";
 			} else {
+				// モデルにログイン account とブログ情報追加
 				model.addAttribute("accountName", account.getAccountName());
 				model.addAttribute("blog", blog);
-				return "blogEdit.html";
+				return "blogEdit.html"; // 編集ページ表示
 			}
-
 		}
 	}
 
@@ -59,37 +60,30 @@ public class BlogEditController {
 	public String blogUpdate(@RequestParam String blogTitle, @RequestParam String categoryName,
 			@RequestParam MultipartFile blogImage, @RequestParam String article,
 			@RequestParam Long blogId) {
-		// セッションからログインしている人の情報をaccountという変数に格納
+		// セッションからログインしているユーザーの情報を取得
 		Account account = (Account) session.getAttribute("loginAccountInfo");
-		// もし、account == nullだったら、ログイン画面にリダイレクトする
-		// そうでない場合、
-		/**
-		 * 現在の日時情報を元に、ファイル名を作成しています。SimpleDateFormatクラスを使用して、日時のフォーマットを指定している。
-		 * 具体的には、"yyyy-MM-dd-HH-mm-ss-"の形式でフォーマットされた文字列を取得している。
-		 * その後、blogImageオブジェクトから元のファイル名を取得し、フォーマットされた日時文字列と連結して、fileName変数に代入
-		 **/
-		// ファイルの保存
-		// もし、blogUpdateの結果がtrueの場合は、商品一覧にリダイレクト
-		// そうでない場合、商品編集画面にリダイレクトする
+
+		// ログインしていない場合、ログインページへリダイレクト
 		if (account == null) {
 			return "redirect:/account/login";
 		} else {
+			// 現在の日時を基にファイル名を作成
 			String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-").format(new Date())
 					+ blogImage.getOriginalFilename();
+
+			// ファイルを指定のパスに保存
 			try {
-				Files.copy(blogImage.getInputStream(), Path.of("src/main/resources/static/blog-img/"+fileName));
+				Files.copy(blogImage.getInputStream(), Path.of("src/main/resources/static/blog-img/" + fileName));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				e.printStackTrace(); // ファイル保存中のエラーを出力
 			}
-			
-			if(blogService.blogUpdate(blogId, blogTitle, categoryName, fileName, article, account.getAccountId())) {
-				return "redirect:/blog/list";
-			}else {
-				return "redirect:/blog/edit"+blogId;
+
+			// ブログの更新処理を実行
+			if (blogService.blogUpdate(blogId, blogTitle, categoryName, fileName, article, account.getAccountId())) {
+				return "redirect:/blog/list"; // 成功した場合、ブログ一覧ページへリダイレクト
+			} else {
+				return "redirect:/blog/edit" + blogId; // 失敗した場合、編集ページにリダイレクト
 			}
 		}
-	
 	}
-
 }

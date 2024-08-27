@@ -13,30 +13,32 @@ import blog.com.models.entity.Account;
 import blog.com.models.entity.Blog;
 import blog.com.services.BlogService;
 
-@Controller
+@Controller // コントローラとして定義
 public class BlogListController {
-    @Autowired
-    private HttpSession session;
-    @Autowired
-    private BlogService blogService;
-    
-    
-  //一覧画面を表示する
-    @GetMapping("/blog/list")
-    public String getBlogList(Model model) {
-    	//セッションからログインしている人の情報を取得
-        Account account = (Account) session.getAttribute("loginAccountInfo");
-      //もし、account == null　ログイン画面にリダイレクトする
-      		//そうでない場合
-      		//ログインしている人の名前の情報を画面に渡して商品一覧のhtmlを表示。
-        if (account == null) {
-            return "redirect:/account/login";
-        } else {
-        	//ブログの情報を取得する
-            List<Blog> blogList = blogService.selectAllBlogList(account.getAccountId());
-            model.addAttribute("accountName", account.getAccountName());
-            model.addAttribute("blogList", blogList);
-            return "blogList.html"; 
-        }
-    }
+
+	@Autowired
+	private HttpSession session; // HTTPセッションを自動的に注入
+
+	@Autowired
+	private BlogService blogService; // BlogServiceを自動的に注入
+
+	// 一覧画面を表示する
+	@GetMapping("/blog/list")
+	public String getBlogList(Model model) {
+		// セッションからログインしているユーザーの情報を取得
+		Account account = (Account) session.getAttribute("loginAccountInfo");
+
+		// ログインしていない場合、ログインページへリダイレクト
+		if (account == null) {
+			return "redirect:/account/login";
+		} else {
+			// ユーザーのブログ情報を取得
+			List<Blog> blogList = blogService.selectAllBlogList(account.getAccountId());
+			// モデルにユーザー名とブログリストを追加
+			model.addAttribute("accountName", account.getAccountName());
+			model.addAttribute("blogList", blogList);
+			// ブログ一覧ページを表示
+			return "blogList.html";
+		}
+	}
 }

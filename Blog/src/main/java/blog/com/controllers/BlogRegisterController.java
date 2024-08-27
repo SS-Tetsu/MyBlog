@@ -19,54 +19,64 @@ import org.springframework.web.multipart.MultipartFile;
 import blog.com.models.entity.Account;
 import blog.com.services.BlogService;
 
-@Controller
+@Controller // コントローラとして定義
 public class BlogRegisterController {
-    @Autowired
-    private BlogService blogService;
 
-    @Autowired
-    private HttpSession session;
+	@Autowired // BlogServiceを自動的に注入
+	private BlogService blogService;
 
-    @GetMapping("/blog/register")
-    public String getBlogRegisterPage(Model model) {
-        Account account = (Account) session.getAttribute("loginAccountInfo");
-        if (account == null) {
-            return "redirect:/account/login";
-        } else {
-            model.addAttribute("accountName", account.getAccountName());
-            return "blogRegister.html";
-        }
-    }
+	@Autowired // HTTPセッションを自動的に注入
+	private HttpSession session;
 
-    @PostMapping("/blog/register/process")
-    public String blogRegisterProcess(@RequestParam String title,
-                                      @RequestParam String category,
-                                      @RequestParam MultipartFile image,
-                                      @RequestParam String details) {
-        Account account = (Account) session.getAttribute("loginAccountInfo");
+	// ブログ登録画面を表示する
+	@GetMapping("/blog/register")
+	public String getBlogRegisterPage(Model model) {
+		// セッションからログインしているユーザーの情報を取得
+		Account account = (Account) session.getAttribute("loginAccountInfo");
 
-        if (account == null) {
-            return "redirect:/account/login";
-        }
+		// ログインしていない場合、ログインページにリダイレクト
+		if (account == null) {
+			return "redirect:/account/login";
+		} else {
+			// ユーザー名をモデルに追加
+			model.addAttribute("accountName", account.getAccountName());
+			// ブログ登録ページを表示
+			return "blogRegister.html";
+		}
+	}
 
-        // 生成文件名
-        String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-").format(new Date()) + image.getOriginalFilename();
-        
-        try {
-            // 保存文件到指定路径
-            Path filePath = Path.of("src/main/resources/static/blog-img/" + fileName);
-            Files.copy(image.getInputStream(), filePath);
-            System.out.println("File uploaded successfully: " + filePath); // 调试信息
-        } catch (IOException e) {
-            e.printStackTrace();
-            return "blogRegister.html"; // 如果文件保存失败，返回注册页面
-        }
+	// ブログの登録処理を行う
+	@PostMapping("/blog/register/process")
+	public String blogRegisterProcess(@RequestParam String title,
+			@RequestParam String category,
+			@RequestParam MultipartFile image,
+			@RequestParam String details) {
+		// セッションからログインしているユーザーの情報を取得
+		Account account = (Account) session.getAttribute("loginAccountInfo");
 
-        // 使用 account.getAccountId() 调用 createBlog 方法
-        if (blogService.createBlog(title, category, fileName, details, account.getAccountId())) {
-            return "redirect:/blog/list";
-        } else {
-            return "blogRegister.html"; // 如果创建失败，返回注册页面
-        }
-    }
+		// ログインしていない場合、ログインページにリダイレクト
+		if (account == null) {
+			return "redirect:/account/login";
+		}
+
+		// ファイル名を生成
+		String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-").format(new Date()) + image.getOriginalFilename();
+
+		try {
+			// 指定されたパスにファイルを保存
+			Path filePath = Path.of("src/main/resources/static/blog-img/" + fileName);
+			Files.copy(image.getInputStream(), filePath);
+			System.out.println("File uploaded successfully: " + filePath); // デバッグ用メッセージ
+		} catch (IOException e) {
+			e.printStackTrace(); // エラーログを出力
+			return "blogRegister.html"; // ファイル保存に失敗した場合、登録ページを再表示
+		}
+
+		// ブログを作成
+		if (blogService.createBlog(title, category, fileName, details, account.getAccountId())) {
+			return "redirect:/blog/list"; // 成功した場合、ブログ一覧ページへリダイレクト
+		} else {
+			return "blogRegister.html"; // 失敗した場合、登録ページを再表示
+		}
+	}
 }

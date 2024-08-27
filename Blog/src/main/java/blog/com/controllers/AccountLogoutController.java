@@ -6,14 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller
+@Controller // Controllerとして定義
 public class AccountLogoutController {
-	@Autowired
+
+	@Autowired // HttpSession自動注入
 	private HttpSession session;
-	@GetMapping("/account/logout")
+
+	@GetMapping("/account/logout") // GETリクエスト /account/logout 処理
 	public String accountLogout() {
-		session.invalidate();
-		return "redirect:/account/login";
+		session.invalidate(); // sessionデータを削除（ログアウト）
+		return "redirect:/account/login"; // loginページにリダイレクト
 	}
-	
 }

@@ -15,7 +15,7 @@
 	<section class="form-contents">
 		<form class="login-form" th:action="@{/account/login/process}" method="post"> <!-- フォームの送信先URLとPOSTメソッド -->
 			<h2>Login</h2> 
-			<div> class="control-group"> <!-- ユーザー名入力 -->
+			<div> <class="control-group"> <!-- ユーザー名入力 -->
 				<label class="login-field-icon" for="login-name">Username</label> 
 				<input type="text" class="login-field" placeholder="username" id="login-name" name="name">
 			</div>
@@ -29,7 +29,7 @@
 				<button type="submit" class="btn">Login</button> 
 			</div>
 			<div class="control-group control-position"> <!-- 新規アカウント作成 -->
-				<a class="login-link" th:href="@{/register}">Create a new account</a> <!-- アカウントページ -->
+				<a class="login-link" th:href="@{/account/register}">Create a new account</a> <!-- アカウントページ -->
 			</div>
 		</form>
 	</section>
